@@ -25,12 +25,20 @@ class cellphone(communicator):
     form_factor = "Flip"
     os = "Android"
     # Asking user to input a couple of details which will be used in if statements and print results based on that outcome
-    def orderType(self):
+    def getDetails(self):
+        employeeName = input("Enter your full name: ")
+        employeeLevel = int(input("Enter your clearance level: "))
         brand = input("Enter manufacturer of product you want to order: ")
-        if (brand == "Google" or brand == "Samsung"):
+        if (employeeLevel<self.clearance_level and (brand == "Google" or brand == "Samsung")):
+            print("Hello {}! I hope you\'re enjoying the day so far".format(employeeName))
             return "We can order from the chosen brand!"
-        else:
+        elif (brand != "Google" or brand != "Samsung"):
             return "Unfortunately we don't have an account to order from that company."
+        else:
+            print("{} unfortunately you are not cleared to use this part of the system.".format(employeeName))
+            print('Goodbye')
+            quit()
+                        
    
 # Creating class of Shorts and plugging in communicator(parent) to
 # inherit its attributes too
@@ -39,24 +47,29 @@ class nic(communicator):
     typeOf = "Wireless"
     speedMbps = 150
     # Asking user to input a couple of details which will be used in if statements and print results based on that outcome
-    def nicType(self):
+    def getDetails(self):
+        employeeName = input("Enter your full name: ")
+        employeeLevel = int(input("Enter your clearance level: "))
         fast = int(input("Please enter the minimum speed(in Mbps) you will be needing the card to handle: "))
-        if (fast > self.speedMbps):
+        if (employeeLevel<self.clearance_level and fast > self.speedMbps):
+            print("Hello {}! I hope you\'re enjoying the day so far".format(employeeName))
             return "We can certainly get a hold of NIC that can handle that requirement"
+        elif (fast < self.speedMbps):
+            return "Unfortunately those speeds are a bit primative, you may have to go a reseller for that"
         else:
-            return "Unfortunately those speeds are a bit primative, you may have to a reseller for that"
-     
-
-
+            print("{} unfortunately you are not cleared to use this part of the system.".format(employeeName))
+            print('Goodbye')
+            quit()
+        
+    
 
 if __name__ == "__main__":
     #Invoking the method within cellphone/nic class and also from into parent class too
     Communicator = communicator()
+    print(Communicator.getDetails())
     Cellphone = cellphone()
     print(Cellphone.getDetails())
-    print(Cellphone.orderType())
     NIC = nic()
     print(NIC.getDetails())
-    print(NIC.nicType())
 
 
