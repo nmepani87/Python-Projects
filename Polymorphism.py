@@ -11,13 +11,12 @@ class communicator:
         # Asking user to input a couple of details which will be used in if statements and print results based on that outcome
         employeeName = input("Enter your full name: ")
         employeeLevel = int(input("Enter your clearance level: "))
-        if employeeLevel<self.clearance_level:
-            print("Hello {}, I hope you're enjoying the day so far".format(employeeName))
+        if (employeeLevel<self.clearance_level):
+            return "Hello {}! I hope you\'re enjoying the day so far".format(employeeName)
         else:
-            print("Unfortunately you are not cleared to use this part of the system")
-            quit()
-        
-        
+            print("{} unfortunately you are not cleared to use this part of the system.".format(employeeName))
+            print('Goodbye')
+            quit()  
     
 # Creating class of Shorts and plugging in communicator(parent) to
 # inherit its attributes too
@@ -28,11 +27,11 @@ class cellphone(communicator):
     # Asking user to input a couple of details which will be used in if statements and print results based on that outcome
     def orderType(self):
         brand = input("Enter manufacturer of product you want to order: ")
-        if brand == "Google" or brand == "Samsung":
-            print("We can order from the chosen brand!")
+        if (brand == "Google" or brand == "Samsung"):
+            return "We can order from the chosen brand!"
         else:
-            print("Unfortunately we don't have an account to order from that company.")
-
+            return "Unfortunately we don't have an account to order from that company."
+   
 # Creating class of Shorts and plugging in communicator(parent) to
 # inherit its attributes too
 class nic(communicator):
@@ -42,11 +41,11 @@ class nic(communicator):
     # Asking user to input a couple of details which will be used in if statements and print results based on that outcome
     def nicType(self):
         fast = int(input("Please enter the minimum speed(in Mbps) you will be needing the card to handle: "))
-        if fast > self.speedMbps:
-            print("We can certainly get a hold of NIC that can handle that requirement")
+        if (fast > self.speedMbps):
+            return "We can certainly get a hold of NIC that can handle that requirement"
         else:
-            print("Unfortunately those speeds are a bit primative, you may have to a reseller for that")
-        
+            return "Unfortunately those speeds are a bit primative, you may have to a reseller for that"
+     
 
 
 
