@@ -20,4 +20,3 @@ class nic(communicator):
     typeOf = "Wireless"
     speed = "150Mbps"
 
-
