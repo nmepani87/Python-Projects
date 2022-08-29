@@ -4,7 +4,7 @@
 
 <h2>Projects</h2>
 <ul>
-  <li>Phonebook/li>
+  <li>Phonebook</li>
   <li>Mean or Nice</li>
   <li>Check Files Gui </li>
  </ul>
